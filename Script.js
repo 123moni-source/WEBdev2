@@ -1,60 +1,50 @@
-ch = document.querySelectorAll
-('[name="change"]');
-// console.log(th);
-ch.forEach((change) =>
+theme = document.querySelectorAll('[name="thm"]');
 
-{
-  theme.addEventListener("click", () => localStorage.setItem("change", change.id));
-}
-);
+theme.forEach((thm) => {
+  thm.addEventListener("click", () => localStorage.setItem("thm", thm.id));
+});
 
 function app() {
-  st = localStorage.getItem("change");
-  ch.forEach((change) => {
-    if (change.id === st) 
-    
-    {
-
-
-      change.checked = true;
+  st = localStorage.getItem("thm");
+  theme.forEach((thm) => {
+    if (thm.id === st){
+      thm.checked = true;
     }
-  }
-  )
-  
-  ;
+  });
 }
 document.onload = app();
 
-document.getElementById('sh').addEventListener("click",display);
-
-function display(){
-    var v=document.getElementById('search').value;
-    req(v);
+var search = document.getElementById('sear');
+var form = document.getElementById('form');
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  search_movie();
+});
+function search_movie() {
+    var url_2 = `https://api.tvmaze.com/search/shows?q=${search.value}`;
+  
+    fetch(url_2)
+        .then((res) => {
+            
+            return res.json();
+        })
+        .then((data) => {
+            console.log(data);
+            add_search(data);
+        });
 }
-
-
-var info;
-function req(s){
-    const url="https://api.tvmaze.com/search/shows?q=";
-    const xhr=new XMLHttpRequest;
-    xhr.onload=function(){
-        info=this.response;
-        console.log(info);
-        var t=document.getElementById('a');
-
-
-
-        var b=document.createElement('b');
-        t.appendChild(b);
-        b.className='m';
-        
-    }
-    xhr.onerror=function(){
-        console.log('error');
-    }
-
-
-    xhr.open("GET",url+s);
-    xhr.send();
+function add_search(data) {
+      var search_movies = document.querySelector(".s-box"); 
+      var movies = document.querySelector(".mo");
+      movies.innerHTML='';
+      console.log(data);
+      for (const movie in data) {
+          const imgg = data[movie].show.image.original;
+          
+          movies.innerHTML += `<div class='movie'>
+                      <img src=${imgg} height="200"/>  
+                  </div>`;
+      };
+      search_movies.style.visibility = "visible";
     
-}
+  };

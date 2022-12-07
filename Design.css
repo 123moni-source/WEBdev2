@@ -1,28 +1,44 @@
-*{
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
+body{
+    background-color: var(--rcolor);
 
-main{
-    border: 4px solid grey;
-    background-color: white;
-    padding: 20px;
+ }
+*{
+    font-family: Arial, Helvetica, sans-serif, Helvetica, sans-serif;
+    padding: 0;
+   margin: 0;
+    box-sizing: border-box;
 }
 section{
     padding: 50px 140px;
-border: 0ch;
+}
+
+main{
+
+  
+    padding-bottom: 10px;
+    border: 5px solid var(--bc);
+    background-color: white; 
+    
 }
 h1{
     text-align: center;
     text-decoration: underline;
     font-size: 40px;
     padding: 20px;
-   color: grey;
+    color: var(--fcolor);
+}
+.mo{
+    border: 5px solid rgb(177, 177, 177);
+    width: 800px;
+    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    margin: auto;
+    
 }
 
-input[type="text"]{
+input[type="search"]{
     outline: none;
     height: 40px;
     padding: 5px;
@@ -32,17 +48,18 @@ button{
     height: 40px;
     font-size: 32px;
 }
-.box{
+.s{
     padding: 20px 10px;
 }
 
 aside{
     display: flex;
-    justify-content: center;
+    
     align-items: center;
-    padding: 50px;
+    padding: 40px;
+    justify-content: center;
 }
-.theme{
+.thm{
     width: 500px;
     height: 100px;
     display: flex;
@@ -63,59 +80,44 @@ input[type="radio"]{
 input[type="radio"]:checked{
     background-color: var(--rcolor);
 }
-
-/* color change */
-
 :root:has(#gray:checked){
     --rcolor:rgb(161, 160, 160);
-    --fcolor:rgba(0, 0, 0, 0.863);
+    --fcolor:black;
     --bc:gray
 }
 :root:has(#pink:checked){
     --rcolor:rgb(245, 203, 210);
-    --fcolor:rgb(226, 157, 169);
+    --fcolor:rgb(252, 126, 147);
     --bc:gray;
 }
 :root:has(#blue:checked){
-    --rcolor:rgb(158, 158, 246);
-    --fcolor:rgb(12, 12, 194);
+    --rcolor:rgb(88, 88, 236);
+    --fcolor:rgb(29, 29, 238);
     --bc:gray;
 }
 :root:has(#green:checked){
-    --rcolor:rgb(105, 233, 105);
-    --fcolor:rgb(5, 133, 5);
-    --bc:rgb(117, 97, 97);
+    --rcolor:rgb(91, 231, 91);
+    --fcolor:rgb(13, 82, 13);
+    --bc:rgb(104, 78, 78);
 }
 :root:has(#black:checked){
     --rcolor:rgb(13, 13, 13);
     --fcolor:rgb(146, 146, 246);
-    --bc:rgb(158, 148, 148);
+    --bc:rgb(192, 177, 177);
 }
-
-#gray
-
-{
-    border: 3px solid rgb(109, 9, 9);
-    background-origin: padding-box;
+#gray{
+    border: 3px solid rgb(109, 108, 108);
 }
 #pink{
     border: 3px solid pink;
 }
-#blue
-
-{
+#blue{
     border: 3px solid blue;
 }
 #green{
-    border: 3px solid rgb(11, 223, 11);
+    border: 3px solid rgb(1, 114, 1);
 }
 #black{
-    border: 3px solid rgba(0, 0, 0, 0.856);
+    border: 3px solid rgb(10, 9, 9);
 }
-
-
- body{
-    background-color: var(--rcolor);
- }
-
-
+ 
